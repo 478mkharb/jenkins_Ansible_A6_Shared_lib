@@ -1,0 +1,20 @@
+# ---------------- General ----------------
+ENVIRONMENT: prod
+CODE_BASE_PATH: Assignment5
+KEEP_APPROVAL_STAGE: true
+
+# ---------------- Git ----------------
+GIT:
+  URL: "https://github.com/478mkharb/Ansible.git"
+  BRANCH: "mukesh"
+  CREDENTIALS_ID: "github-pat"
+
+# ---------------- Ansible ----------------
+ANSIBLE:
+  PLAYBOOK: "site.yml"
+  INVENTORY: "inventory/aws_ec2.aws_ec2.yml"
+  FORKS: 5
+
+# ---------------- Notification ----------------
+SLACK_CHANNEL_NAME: "build-status"
+ACTION_MESSAGE: "Ansible deployment for Assignment5"
