@@ -5,13 +5,17 @@ def call() {
     pipeline {
         agent any
 
-        environment {
-            ANSIBLE_FORCE_COLOR = 'true'
-            ANSIBLE_HOST_KEY_CHECKING = 'False'
-            ENVIRONMENT = cfg.ENVIRONMENT
-        }
-
         stages {
+
+            stage('Init Environment') {
+                steps {
+                    script {
+                        env.ANSIBLE_FORCE_COLOR = 'true'
+                        env.ANSIBLE_HOST_KEY_CHECKING = 'False'
+                        env.ENVIRONMENT = cfg.ENVIRONMENT
+                    }
+                }
+            }
 
             stage('Checkout Code') {
                 steps {
